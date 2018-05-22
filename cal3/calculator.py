@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import sys
+import csv
 
 
 def calcu(dict):
@@ -30,8 +31,27 @@ def calcu(dict):
         print("{}:{:.2f}".format(key,val))
       #  print(key1,val1)
 
-if __name__ == '__main__':
+
+class Config(object):
+    
+    def __init__(self,file_con):
+        self.file_con = file_con
+        self.config = self._read_config()
+    def _read_config(self,file_con):
+        config = {}
+#        file_con = '/home/shiyanlou/shiyanlou01/cal3/test.cfg'
+        with open(file_con) as file:
+            for line in file:
+                str = line.replace(' ','').strip().split('=')
+                print(str)
+                config[str[0]] = str[1]
+        print(config)
+
+
+if __name__  == '__main__':
     try:
+
+        """
         indatadict = {}
         for arg in sys.argv[1:]:
             str_key = arg.split(':')
@@ -42,7 +62,11 @@ if __name__ == '__main__':
      #       print(indatadict)
       #  for key,val in indatadict.items():
        #     print(key,val)
-        calcu(indatadict)
+         calcu(indatadict)
+         """
+        file_con = '/home/shiyanlou/shiyanlou01/cal3/test.cfg'
+        cfg = Config(file_con)
+        cfg._read_config()        
     except ValueError:
         print("Parameter Error")
 
