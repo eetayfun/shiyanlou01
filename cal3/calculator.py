@@ -2,6 +2,20 @@
 import sys
 import csv
 
+'''
+class Args:
+    def __init__(self):
+        l = sys.argv[1:]
+        self.c = l[l.index('-c')+1]
+        self.d = l[l.index('-d')+1]
+        self.o = l[l.index('-o')+1]
+
+args = Args()
+print(args.c)
+print(args.d)
+print(args.o)
+
+'''
 
 def calcu(dict):
     tax = {}
@@ -36,9 +50,11 @@ class Config(object):
     
     def __init__(self,file_con):
         self.file_con = file_con
-        self.config = self._read_config()
+        self.config = self._read_config(file_con)
+
     def _read_config(self,file_con):
         config = {}
+
 #        file_con = '/home/shiyanlou/shiyanlou01/cal3/test.cfg'
         with open(file_con) as file:
             for line in file:
@@ -47,11 +63,13 @@ class Config(object):
                 config[str[0]] = str[1]
         print(config)
 
+co
 
+
+'''
 if __name__  == '__main__':
     try:
 
-        """
         indatadict = {}
         for arg in sys.argv[1:]:
             str_key = arg.split(':')
@@ -63,10 +81,10 @@ if __name__  == '__main__':
       #  for key,val in indatadict.items():
        #     print(key,val)
          calcu(indatadict)
-         """
         file_con = '/home/shiyanlou/shiyanlou01/cal3/test.cfg'
         cfg = Config(file_con)
-        cfg._read_config()        
+  #      cfg._read_config()        
     except ValueError:
         print("Parameter Error")
 
+'''
